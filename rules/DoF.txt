@@ -1,0 +1,17 @@
+Defenifion of Fun (DoF)
+1. Organisering
+•	Alle files staan in hun respectieve mappen
+•	Je zorg er voor dat als je iets af hebt dat je het in de scrum af kruist
+•	De code is begrijpelijk en geordend
+•	Github push messages zijn duidelijk en begrijpelijk
+•	Je pusht niet te vaak naar github
+2. Ai
+•	Alleen Ai gebruiken voor bugs oplossen waar je al langer naar heb gezocht
+•	Als je iets niet weet dan vraag je het of zoek je het op en grijp je niet meteen naar AI
+•	Je laat Ai NOOIT je files bewerken
+3. Fun
+•	Als er iets is dan geef je het aan
+•	Als je iets wilt dan ga je in overleg
+•	MUZIEK!!!!!!!!!!!!
+•	Caring is sharing
+•	Kloten mag maar niet te veel
