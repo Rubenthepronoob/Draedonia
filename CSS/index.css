@@ -3,6 +3,9 @@
 .hide {
   display: none;
 }
+ul {
+  list-style-type: none;
+}
 /*alignment*/
 .top {
   margin-left: 8vw;
@@ -17,6 +20,7 @@
   margin-left: 10vw;
   margin-top: 50vh;
 }
+/*backgrounds*/
 .background-home {
     background-image: url("../images/backgrounds/home.png");
 }
