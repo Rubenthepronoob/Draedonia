@@ -8,7 +8,7 @@ document.addEventListener('dragstart', (event) => {
 });
 
 const pages = {
-  login: 'login',
+  login: 'loginButton',
   back: 'back',
   play: 'play-menu',
   customize: 'customize-menu',
@@ -62,7 +62,7 @@ function bindMenuButtons() {
   const menuActions = {
     login: () => {
       showPage('back');
-        document.getElementById('loginbutton')?.classList.add('hide');
+        document.getElementById('login')?.classList.add('hide');
         menuButtons.forEach((id) => {
           document.getElementById(id)?.classList.remove('hide');
         });
