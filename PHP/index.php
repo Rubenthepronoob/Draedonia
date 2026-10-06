@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
-    <title>Document</title>
+    <title>Draedonia</title>
 </head>
 <body>
 <nav id="nav">
-    <button><a href="register.php">Register</a></button>
-    <button><a href="login.php">Login</a></button>
+    <button onclick="location.href='http:../PHP/about.php'" type="button" id="navButton" class="aboutButton">About</button>
     <h1>Welcome to Draedonia</h1>
+    <button onclick="location.href='http:../PHP/login.php'" type="button" id="navButton" class="loginButton">Login</button>
 </nav>
 </body>
 </html>
