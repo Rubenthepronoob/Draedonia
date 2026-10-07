@@ -30,8 +30,11 @@ form {
   margin: 0;
   padding: 10px;
   color: rgb(140, 0, 0);
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+               1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
   border-radius: 5px;
   position: absolute;
+  font-weight:lighter;
   margin-left: 30vw;
   margin-right: 30vw;
   font-family: fangsong;
@@ -49,6 +52,7 @@ form {
   color: white;
   border: none;
   border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   margin-left: auto;
   margin-right: 0;
   padding: 10px 15px;
