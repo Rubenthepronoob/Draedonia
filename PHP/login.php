@@ -4,15 +4,19 @@ require "config.php";
 
 $error = '';
 
-if (isset($_POST['submit'])) {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    $check_sql = "SELECT * FROM accounts WHERE username='$username' OR email='$username'";
-    $check_result = $conn->query($check_sql);
+    $check_sql = "SELECT * FROM accounts WHERE username = :username OR email = :email";
+    $check_result = $conn->prepare($check_sql);
+    $check_result->execute([
+        ':username' => $username,
+        ':email' => $username,
+    ]);
 
-    if ($check_result->num_rows > 0) {
-        $user = $check_result->fetch_assoc();
+    $user = $check_result->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
         // Verify password
         if (password_verify($password, $user['password'])) {
             session_start();
@@ -49,11 +53,8 @@ if (isset($_POST['submit'])) {
             </div>
         <?php endif; ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label for="username">username:</label><br>
+            <label for="username">username or e-mail:</label><br>
             <input type="text" id="username" name="username" required><br><br>
-
-            <label for="email">E-mail:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
 
             <label for="password">password:</label><br>
             <input type="password" id="password" name="password" required><br><br>

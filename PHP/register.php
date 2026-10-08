@@ -9,21 +9,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
 
-    $check_sql = "SELECT * FROM accounts WHERE username='$username'";
-    $check_result = $conn->query($check_sql);
+    $check_sql = "SELECT * FROM accounts WHERE username = :username";
+    $check_result = $conn->prepare($check_sql);
+    $check_result->execute([':username' => $username]);
     if ($check_result->rowCount() > 0) {
         $message = "An username can only be used once.";
         $message_type = "error";
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $insert_sql = "INSERT INTO accounts (username, password, email) VALUES ('$username', '$hashed_password', '$email')";
-        if ($conn->query($insert_sql) === TRUE) {
+        $insert_sql = "INSERT INTO accounts (username, password, email) VALUES (:username, :password, :email)";
+        $insert_result = $conn->prepare($insert_sql);
+        if ($insert_result->execute([
+            ':username' => $username,
+            ':password' => $hashed_password,
+            ':email' => $email,
+        ])) {
             $message = "User successfully registered.";
             $message_type = "success";
-            } else { 
-                $message = "Error: Unable to add new user " . $conn->error;
-                $message_type = "error";
-            }
+        } else {
+            $message = "Unable to add new user.";
+            $message_type = "error";
+        }
     }
 }
 ?>
