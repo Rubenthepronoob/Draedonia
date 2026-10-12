@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label for="username">Username or e-mail:</label><br>
+            <label for="username">username:</label><br>
             <input type="text" id="username" name="username" required><br><br>
 
             <label for="password">password:</label><br>
