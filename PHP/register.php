@@ -1,6 +1,6 @@
 <?php
 require "config.php";
-
+session_start();
 $message = '';
 $message_type = '';
 
@@ -9,21 +9,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
 
-    $check_sql = "SELECT * FROM accounts WHERE username='$username'";
-    $check_result = $conn->query($check_sql);
-    if ($check_result->rowCount() > 0) {
+    $check_statement = $conn->prepare("SELECT 1 FROM accounts WHERE username = :username");
+    $check_statement->execute(['username' => $username]);
+    if ($check_statement->fetchColumn() !== false) {
         $message = "An username can only be used once.";
         $message_type = "error";
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $insert_sql = "INSERT INTO accounts (username, password, email) VALUES ('$username', '$hashed_password', '$email')";
-        if ($conn->query($insert_sql) === TRUE) {
+        $insert_statement = $conn->prepare(
+            "INSERT INTO accounts (username, password, email) VALUES (:username, :password, :email)"
+        );
+        if ($insert_statement->execute([
+            'username' => $username,
+            'password' => $hashed_password,
+            'email' => $email,
+        ])) {
             $message = "User successfully registered.";
             $message_type = "success";
-            } else { 
-                $message = "Error: Unable to add new user " . $conn->error;
-                $message_type = "error";
-            }
+            header("Location: index.php");
+            $_SESSION['login'] = true;
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $username;
+            exit;
+        } else {
+            $message = "Error: Unable to add new user.";
+            $message_type = "error";
+        }
     }
 }
 ?>

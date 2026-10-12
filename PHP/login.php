@@ -1,31 +1,31 @@
 <?php
 
 require "config.php";
-
+session_start();
 $error = '';
 
-if (isset($_POST['submit'])) {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    $check_sql = "SELECT * FROM accounts WHERE username='$username' OR email='$username'";
-    $check_result = $conn->query($check_sql);
+    $check_statement = $conn->prepare(
+        'SELECT * FROM accounts WHERE username = :username OR email = :email'
+    );
+    $check_statement->execute([
+        'username' => $username,
+        'email' => $username,
+    ]);
+    $user = $check_statement->fetch(PDO::FETCH_ASSOC);
 
-    if ($check_result->num_rows > 0) {
-        $user = $check_result->fetch_assoc();
-        // Verify password
-        if (password_verify($password, $user['password'])) {
-            session_start();
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
-            header("Location: index.php");
-            exit;
-        } else {
-            $error = "Wachtwoord is onjuist";
-        }
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['login'] = true;
+        header("Location: index.php");
+        exit;
     } else {
-        $error = "Gebruikersnaam of email niet gevonden";
+        $error = "Gebruikersnaam, e-mail of wachtwoord is onjuist";
     }
 }
 ?>
@@ -49,11 +49,8 @@ if (isset($_POST['submit'])) {
             </div>
         <?php endif; ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label for="username">username:</label><br>
+            <label for="username">Username or e-mail:</label><br>
             <input type="text" id="username" name="username" required><br><br>
-
-            <label for="email">E-mail:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
 
             <label for="password">password:</label><br>
             <input type="password" id="password" name="password" required><br><br>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +11,19 @@
 </head>
 <body>
 <nav id="nav">
-    <button onclick="location.href='http:../PHP/about.php'" type="button" id="navButton" class="aboutButton">About</button>
+    <button onclick="location.href='http:about.php'" type="button" id="navButton" class="aboutButton">About</button>
     <h1>Welcome to Draedonia</h1>
-    <button onclick="location.href='http:../PHP/login.php'" type="button" id="navButton" class="loginButton">Login</button>
+    <button onclick="location.href='http:logout.php'" type="button" id="navButton" class="logoutButton">logout</button>
+    <button onclick="location.href='http:login.php'" type="button" id="navButton" class="loginButton"><img src="../images/null_profile_icon.png" class="loginIcon">
+    <?php
+    if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
+        echo $_SESSION['username'];
+    }
+    else {
+        echo "Login";
+    }
+    ?>
+    </button>
 </nav>
 </body>
 </html>
