@@ -14,16 +14,26 @@ session_start();
     <button onclick="location.href='http:about.php'" type="button" id="navButton" class="aboutButton">About</button>
     <h1>Welcome to Draedonia</h1>
     <button onclick="location.href='http:logout.php'" type="button" id="navButton" class="logoutButton">logout</button>
-    <button onclick="location.href='http:login.php'" type="button" id="navButton" class="loginButton"><img src="../images/null_profile_icon.png" class="loginIcon">
+    <button type="button" id="navButton" class="loginButton"><img src="../images/null_profile_icon.png" class="loginIcon">
     <?php
     if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
         echo $_SESSION['username'];
-    }
-    else {
-        echo "Login";
+    } else {
+        echo 'account';
     }
     ?>
+    <div id="account">
+    <?php
+    if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
+        echo $_SESSION['username'];
+    } else {
+        echo '<a href="http:login.php">Login</a>';
+    }
+    ?>
+    
+    </div>
     </button>
+    
 </nav>
 </body>
 </html>

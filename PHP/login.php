@@ -9,23 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     $check_statement = $conn->prepare(
-        'SELECT * FROM accounts WHERE username = :username OR email = :email'
+        'SELECT * FROM accounts WHERE username = :username'
     );
     $check_statement->execute([
         'username' => $username,
-        'email' => $username,
     ]);
     $user = $check_statement->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        $_SESSION['email'] = $user['email'];
         $_SESSION['login'] = true;
         header("Location: index.php");
         exit;
     } else {
-        $error = "Gebruikersnaam, e-mail of wachtwoord is onjuist";
+        $error = "username or password is incorrect";
     }
 }
 ?>
