@@ -25,10 +25,10 @@ session_start();
     <div id="account">
     <?php
     if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
-        echo '<hr>' . $_SESSION['username'] . '<br><br><a href="logout.php">Logout</a><br><br><a href="account.php">My Account</a><br><hr>';
+        echo '<hr>' . $_SESSION['username'] . '<br><br><a href="account.php">My Account</a><br><br><a href="logout.php">Logout</a><br><hr>';
         echo '';
     } else {
-        echo '<a href="http:login.php">Login</a>';
+        echo '<hr><a href="http:login.php">Login</a><hr>';
     }
     ?>
     
