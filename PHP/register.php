@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../CSS/style.css">
     
 </head>
-<body class="registerPage">
+<body>
 <div class="container">
     <div class="box">
         <h2>Register</h2>
