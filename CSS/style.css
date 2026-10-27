@@ -74,6 +74,7 @@ form {
   display: block;
   position: absolute;
   top: 66px;
+  width: inherit;
   height: 0;
   overflow: hidden;
   border: 1px solid #ccc;
@@ -81,10 +82,10 @@ form {
   background: white;
   right: 0;
   color: black;
-  transition: height 0.5s ease;
+  transition: height 0.15s ease-in, width 0.15s ease-in;
 }
 .loginButton:hover #account {
-  height: auto;
+  width: 200px;
 }
 label {
   display: block;
