@@ -1,3 +1,4 @@
+/* Theme tokens and base styles */
 :root {
   --ink: #22243a;
   --muted: #77798b;
@@ -7,6 +8,7 @@
   --surface: #fff;
   interpolate-size: allow-keywords;
 }
+
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
@@ -30,50 +32,57 @@ h2 {
 form {
   margin-bottom: 24px;
 }
+
+/* Navigation */
 #nav {
   display: flex;
+  height: 66px;
+  align-items: center;
   justify-content: center;
   background-color: rgb(40, 60, 65);
 }
+
 #nav h1 {
   margin: 0;
   padding: 10px;
   color: rgb(140, 0, 0);
   text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
   border-radius: 5px;
   position: absolute;
-  font-weight:lighter;
+  font-weight: lighter;
   margin-left: 30vw;
   margin-right: 30vw;
   font-family: fangsong;
   font-size: 40px;
 }
+
 #nav #navButton {
   justify-content: center;
   display: flex;
   align-items: center;
   width: 100px;
-  height: 66px;
+  height: 40px;
   font-size: medium;
   font-family: fangsong;
   background: none;
   color: white;
   border: none;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  margin-left: auto;
-  margin-right: 0;
+  border: white 1px solid;
+  border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
 }
+
 #nav #navButton:hover {
   background: #5fd2ff38;
 }
+
 #account {
   display: block;
   position: absolute;
   top: 66px;
+  margin-left: auto;
   width: inherit;
   height: 0;
   overflow: hidden;
@@ -84,9 +93,8 @@ form {
   color: black;
   transition: height 0.15s ease-in, width 0.15s ease-in;
 }
-.loginButton:hover #account {
-  width: 200px;
-}
+
+/* Forms and buttons */
 label {
   display: block;
   margin-bottom: 8px;
@@ -100,6 +108,32 @@ input {
   box-sizing: border-box;
 }
 
+.loginButton {
+  background: #2d6cdf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.loginButton:hover #account {
+  width: 200px;
+}
+
+.aboutButton {
+  background: #2d6cdf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-right: auto;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .registerbutton {
   background: #2d6cdf;
   color: white;
@@ -109,6 +143,7 @@ input {
   border-radius: 5px;
 }
 
+/* Feedback and account state */
 .message {
   background: #eef6ff;
   border: 1px solid #cfe2ff;
@@ -131,7 +166,7 @@ input {
   font-weight: bold;
 }
 
-/*extra*/
+/* Utility classes */
 .hide {
   display: none;
 }
@@ -140,7 +175,7 @@ ul {
   list-style-type: none;
 }
 
-/*alignment*/
+/* Positioning helpers */
 .top {
   margin-left: 8vw;
   margin-top: 5.6vh;
@@ -157,7 +192,7 @@ ul {
   margin-top: 50vh;
 }
 
-/*backgrounds*/
+/* Page backgrounds */
 .background-home {
   background-image: url("../images/backgrounds/home.png");
 }
@@ -168,7 +203,6 @@ ul {
 
 .background-credits {
   background-image: url("../images/backgrounds/credits.png");
-
 }
 
 .background-customize {
@@ -179,6 +213,7 @@ ul {
   background-image: url("../images/backgrounds/died.png");
 }
 
+/* Account settings page */
 body.account-page {
   color-scheme: light;
   --ink: #22243a;
@@ -214,7 +249,7 @@ body.account-page {
 .account-page .brand {
   font-size: 21px;
   font-weight: 800;
-  letter-spacing: -.6px;
+  letter-spacing: -0.6px;
 }
 
 .account-page .brand span {
@@ -381,6 +416,7 @@ body.account-page {
   font-size: 13px;
 }
 
+/* Responsive account settings page */
 @media (max-width: 680px) {
   .account-page main {
     margin: 30px auto;

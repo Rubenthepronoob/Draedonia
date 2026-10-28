@@ -13,7 +13,6 @@ session_start();
 <nav id="nav">
     <button onclick="location.href='http:about.php'" type="button" id="navButton" class="aboutButton">About</button>
     <h1>Welcome to Draedonia</h1>
-    <button onclick="location.href='http:logout.php'" type="button" id="navButton" class="logoutButton">logout</button>
     <button type="button" id="navButton" class="loginButton">
     <?php
     if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
