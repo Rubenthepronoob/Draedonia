@@ -4,7 +4,7 @@
   "diagrams": [
     {
       "documentId": "e8c7d187-9de2-4201-80cd-b4befa464a09",
-      "title": "Blank diagram",
+      "title": "draedonia usecase diagram",
       "pages": [
         {
           "id": "0_0",
@@ -13,13 +13,13 @@
       ],
       "artifacts": [
         {
-          "fileName": "blank_diagram_e8c7d187-9de2-4201-80cd-b4befa464a09_0_0.png",
+          "fileName": "draedonia_usecase_diagram_e8c7d187-9de2-4201-80cd-b4befa464a09_0_0.png",
           "format": "png",
           "scope": {
             "type": "page",
             "pageId": "0_0"
           },
-          "actionHistoryLength": 2143,
+          "actionHistoryLength": 2217,
           "exportOptions": {
             "crop": {
               "type": "content"
