@@ -12,7 +12,7 @@ session_start();
 <body>
 <nav id="nav">
     <button onclick="location.href='http:about.php'" type="button" id="navButton" class="aboutButton">About</button>
-    <h1>Welcome to Draedonia</h1>
+    <img src="../images/Draedonia_ The Fractured World Logo.png" id="logo" alt="Draedonia Logo" onclick="location.href='index.php'">
     <button type="button" id="navButton" class="loginButton">
     <?php
     if (!empty($_SESSION['login']) && isset($_SESSION['username'])) {
