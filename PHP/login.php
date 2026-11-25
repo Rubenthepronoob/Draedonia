@@ -34,15 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/Shattered Purple Crystal Portal Emblem.png">
     <link rel="stylesheet" href="../CSS/style.css">
+    <title>Login</title>
 </head>
 <body>
+    <button onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href = 'index.php'; }" type="button" id="navButton" class="backButton">Back</button>
 <div class="container">
     <div class="box">
         <h2>login</h2>
         <?php if ($error): ?>
-            <div style="text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px; background-color: #f8d7da; color: #721c24;">
+            <div id="error-message" style="text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px; background-color: #f8d7da; color: #721c24;">
                 <?php echo htmlspecialchars($error); ?>
             </div>
         <?php endif; ?>

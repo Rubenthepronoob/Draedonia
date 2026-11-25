@@ -39,16 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/Shattered Purple Crystal Portal Emblem.png">
     <link rel="stylesheet" href="../CSS/style.css">
-    
+    <title>Registration</title>
 </head>
 <body>
+    <button onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href = 'index.php'; }" type="button" id="navButton" class="backButton">Back</button>
 <div class="container">
     <div class="box">
         <h2>Register</h2>
         <?php if ($message): ?>
-            <div style="text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px; <?php echo ($message_type === 'error') ? 'background-color: #f8d7da; color: #721c24;' : 'background-color: #d4edda; color: #155724;'; ?>">
+            <div id="message" style="text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px; <?php echo ($message_type === 'error') ? 'background-color: #f8d7da; color: #721c24;' : 'background-color: #d4edda; color: #155724;'; ?>">
                 <?php echo htmlspecialchars($message); ?>
             </div>
         <?php endif; ?>

@@ -40,7 +40,7 @@ form {
   margin: 5px;
   height: auto;
   width: 190px;
-  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, margin 0.7s ease-in-out;
 }
 
 #logo:hover {
@@ -97,7 +97,7 @@ form {
 #account {
   display: hidden;
   position: absolute;
-  top: 66px;
+  top: 74px;
   margin-left: auto;
   width: inherit;
   height: 0;
@@ -107,7 +107,7 @@ form {
   background: white;
   right: 0;
   color: black;
-  transition: height 0.15s ease-in, width 0.15s ease-in;
+  transition: height 0.15s ease-in-out, width 0.15s ease-in-out;
 }
 
 /* Forms and buttons */
@@ -153,7 +153,7 @@ input {
 }
 
 .registerbutton {
-  background: #2d6cdf;
+  background: black;
   color: white;
   border: none;
   padding: 10px 15px;

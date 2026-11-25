@@ -20,6 +20,7 @@ if ($initials === '') {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/Neon Violet Crystal Portal Emblem.png">
 	<link rel="stylesheet" href="../CSS/style.css">
 	<title>My Account | Draedonia</title>
 </head>

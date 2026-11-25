@@ -6,6 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/Shattered Purple Crystal Portal Emblem.png">
     <link rel="stylesheet" href="../CSS/style.css">
     <title>Draedonia</title>
 </head>
@@ -27,13 +28,12 @@ session_start();
         echo '<hr>' . $_SESSION['username'] . '<br><br><a href="account.php">My Account</a><br><br><a href="logout.php">Logout</a><br><hr><style>.loginButton:hover #account{height: 128px;}</style>';
         echo '';
     } else {
-        echo '<hr><a href="http:login.php">Login</a><hr><style>.loginButton:hover #account{height: 54px;}</style>';
+        echo '<hr><a href="http:login.php">Login</a><style>.loginButton:hover #account{height: 73px;}</style><br><br>';
+        echo '<a href="http:register.php">Register</a><hr><style>.loginButton:hover</style>';
     }
     ?>
-    
     </div>
     </button>
-    
 </nav>
 </body>
 </html>
