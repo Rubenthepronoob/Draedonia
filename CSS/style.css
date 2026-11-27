@@ -16,9 +16,18 @@ body {
   padding: 0;
 }
 
-.container {
-  max-width: 500px;
+div.container {
+  max-width: 30vw;
   margin: 40px auto;
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+main.container {
+  max-width: auto;
+  margin: 40px 60px;
   background: white;
   padding: 24px;
   border-radius: 10px;
